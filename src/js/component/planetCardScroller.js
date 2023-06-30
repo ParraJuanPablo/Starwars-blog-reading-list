@@ -31,7 +31,7 @@ export const PlanetCardScroller = () => {
             {planets.map((planet) => {
                 return(
                     <div className="px-2 color-black">
-                        <PlanetCard name={planet.properties.name} population={planet.properties.population} terrain={planet.properties.terrain}/>
+                        <PlanetCard index={store.planets.indexOf(planet)} name={planet.properties.name} population={planet.properties.population} terrain={planet.properties.terrain}/>
                     </div>
                 )
             }
