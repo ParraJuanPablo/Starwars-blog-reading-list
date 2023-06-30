@@ -1,0 +1,9 @@
+div.scrollmenu {
+    overflow: auto;
+    white-space: nowrap;
+    height: 400px;
+}
+div.scrollmenu div{
+    color: black;
+    display: inline-block;
+}
