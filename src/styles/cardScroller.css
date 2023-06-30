@@ -1,7 +1,7 @@
 div.scrollmenu {
     overflow: auto;
     white-space: nowrap;
-    height: 400px;
+    height: 425px;
 }
 div.scrollmenu div{
     color: black;

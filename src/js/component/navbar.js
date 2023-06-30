@@ -1,7 +1,30 @@
 import React from "react";
+import { useState, useContext, useEffect } from "react";
+import { Context } from "../store/appContext";
+
 import { Link } from "react-router-dom";
 
 export const Navbar = () => {
+	const { store, actions } = useContext(Context);
+
+	
+	function Favorites (){		
+		if (store.favorites.length > 0) {
+
+			return(
+				store.favorites.map((favorite) => {
+					return(
+						<li><Link to={"/characterDescription/"+index} ><a className="dropdown-item">{favorite.properties.name}</a></Link><i class="fa-solid fa-x float-right exe" onClick={() => store.favorites.pop(store.favorites.indexOf(favorite))}></i></li>
+					)
+				}
+				)
+			)
+		}
+	}
+	useEffect(() =>{
+		console.log("navbar actualizado")
+	}
+	, [store.favorites]);
 	return (
 		<nav className="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between">
 			<div className="px-5">
@@ -17,12 +40,10 @@ export const Navbar = () => {
 				<div className="collapse navbar-collapse" id="navbarTogglerDemo02">
 					<div className="btn-group">
 						<button type="button" className="btn btn-lg btn-primary dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
-							Favorites
+							Favorites {store.favorites.length}
 						</button>
 						<ul className="dropdown-menu dropdown-menu-lg-end">
-							<li><a className="dropdown-item" href="#">Menu item</a></li>
-							<li><a className="dropdown-item" href="#">Menu item</a></li>
-							<li><a className="dropdown-item" href="#">Menu item</a></li>
+							{Favorites()}
 						</ul>
 					</div>
 				</div>
